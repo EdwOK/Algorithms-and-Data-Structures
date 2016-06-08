@@ -1,5 +1,8 @@
 'use strict';
 
-function shellSort() {
+/**
+ * 
+ */
+function shellSort(array) {
     
 }
