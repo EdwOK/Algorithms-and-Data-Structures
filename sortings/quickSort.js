@@ -12,10 +12,10 @@ function quickSort(array) {
  */
 function sort(array, leftRange, rightRange) {
     if (leftRange < rightRange) {
-        var index = partition(array, leftRange, rightRange);
+        var partitionIndex = partition(array, leftRange, rightRange);
         
-        sort(array, leftRange, index - 1);
-        sort(array, index + 1, rightRange);
+        sort(array, leftRange, partitionIndex - 1);
+        sort(array, partitionIndex + 1, rightRange);
     }
 }
 
@@ -24,7 +24,8 @@ function sort(array, leftRange, rightRange) {
  */
 function partition(array, leftRange, rightRange) {
     var pivot = array[Math.floor((leftRange + rightRange) / 2)];
-    var storeIndex = leftRange, pivotValue = array[pivot];
+    var storeIndex = leftRange, 
+        pivotValue = array[pivot];
 
     swap(array, pivot, rightRange);
     for (var i = leftRange; i < rightRange; ++i) {

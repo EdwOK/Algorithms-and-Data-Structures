@@ -4,13 +4,15 @@
  * 
  */
 function mergeSort(array) {
-    if (array.length === 1) {
+    var length = array.length;
+    if (length < 2) {
         return array;
     }
 
-    var middle = Math.floor(array.length / 2);
-    var leftPart = mergeSort(array.slice(0, middle)) || [];
-    var rightPart = mergeSort(array.slice(middle, array.length)) || [];
+    var middle = Math.floor(length / 2),
+        leftPart = array.slice(0, middle),
+        rightPart = array.slice(middle);
+        
     return merge(leftPart, rightPart); 
 }
 
@@ -18,16 +20,17 @@ function mergeSort(array) {
  * 
  */
 function merge(leftPart, rightPart) {
-    var result = [];
-    var i = 0, j = 0;
+    var result = [],
+        left = 0, 
+        right = 0;
 
-    while (i < leftPart.length && j < right.length) {
-        if (leftPart[i] < rightPart[j]) {
-            result.push(leftPart[i++]);
+    while (left < leftPart.length && right < right.length) {
+        if (leftPart[left] < rightPart[right]) {
+            result.push(leftPart[left++]);
         } else {
-            result.push(rightPart[j++]);
+            result.push(rightPart[right++]);
         }
     }
 
-    return result.concat(leftPart.slice(i)).concat(rightPart.slice(j));
+    return result.concat(leftPart.slice(left)).concat(rightPart.slice(right));
 }

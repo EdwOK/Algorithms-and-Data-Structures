@@ -4,17 +4,51 @@
  * 
  */
 function heapSort(array) {
-    var gaps = [701, 301, 132, 57, 23, 10, 4, 1];
-
-    for (var g = 0; g < gaps.length; ++g) {
-        for (var i = gaps[g]; i < array.length; ++i) {
-            var temp = array[i];
-
-            for (var j = i; j >= gaps[g] && array[j - gaps[g]] > temp; j -= gaps[g]) {
-                array[j] = array[j - gaps[g]];
-            }
+    var length = array.length;
     
-            array[j] = temp;
-        }
+    buildMaxHeap(array);
+    for (var i = array.length - 1; i > 0; i -= 1) {
+        swap(array, 0, i);
+        --length;
+        heapify(array, 0, length);
     }
+}
+
+
+/**
+ * 
+ * 
+*/
+function heapify(array, index, heapSize) {
+    var leftRange = 2 * index + 1;
+    var rightRange = 2 * index + 2;
+    var maximum = index;
+
+    if (leftRange < heapSize && cmp(array[leftRange], array[index]) > 0) {
+        maximum = leftRange;
+    }
+
+    if (rightRange < heapSize && cmp(array[rightRange], array[maximum]) > 0) {
+        maximum = rightRange;
+    }
+
+    if (maximum !== index) {
+        swap(array, maximum, index);
+        heapify(array, maximum, heapSize);
+    }
+}
+
+
+/**
+ * 
+ * 
+ */
+function buildMaxHeap(array) {
+    var length = array.length;
+    
+    for (var i = Math.floor(length / 2); i >= 0; i -= 1) {
+        heapify(array, i, length);
+    }
+
+    return array;
 }
