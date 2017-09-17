@@ -1,0 +1,24 @@
+{
+  "name": "algorithmics",
+  "version": "0.0.1",
+  "description": "Implementation of based algorithms and data structures in TypeScript.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EdwOK/JS-Algorithms.git"
+  },
+  "keywords": [
+    "algorithms",
+    "data-structures",
+    "typescipt"
+  ],
+  "author": "Eduard Paprotski",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EdwOK/JS-Algorithms/issues"
+  },
+  "homepage": "https://github.com/EdwOK/JS-Algorithms#readme"
+}
