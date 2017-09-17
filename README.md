@@ -1,2 +1,2 @@
 # Algorithms and Data Structures
-Examples of implementing popular algorithms and data structures using TypeScript.
+Implementation of based algorithms and data structures in TypeScript.
